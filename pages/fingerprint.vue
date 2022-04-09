@@ -1,5 +1,6 @@
 <template>
   <v-row justify="center" align="center">
+    <v-col cols="12" sm="10" md="10" lg="8">
     <div id="font"></div>
     <div v-if="fingerprintData === null"></div>
     <div class="mt-6" v-else>
@@ -54,6 +55,7 @@
         </template>
       </v-simple-table>
     </div>
+    </v-col>
   </v-row>
 </template>
 
@@ -76,9 +78,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.data-table {
-  max-width: 800px;
-}
-</style>

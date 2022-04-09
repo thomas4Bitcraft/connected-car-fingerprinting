@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="center" align="center">
-      <v-col cols="12" sm="8" md="6">
+      <v-col cols="12" sm="10" md="10" lg="8">
         <v-card>
           <v-card-title class="headline">
             Welcome to the car fingerprint prototype

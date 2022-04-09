@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <div id="font"></div>
-    <v-col cols="12" sm="8" md="6">
+    <v-col cols="12" sm="10" md="10" lg="8">
       <v-card v-if="state === states.initial">
         <v-card-title class="headline">Check my car</v-card-title>
         <v-card-text>

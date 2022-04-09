@@ -13,9 +13,9 @@ export const actions = {
     commit('setData', {
       userAgent: headers['user-agent'],
       accept: headers.accept,
-      contentEncoding: headers['accept-encoding'],
-      contentLanguage: headers['accept-language'],
-      headers: Object.keys(headers).sort(),
+      // contentEncoding: headers['accept-encoding'],
+      // contentLanguage: headers['accept-language'],
+      // headers: Object.keys(headers).sort(),
     })
   },
 }
