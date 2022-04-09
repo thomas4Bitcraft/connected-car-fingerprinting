@@ -9,7 +9,9 @@ module.exports = {
     requireConfigFile: false,
   },
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'multi-word-component-names': 'off',
+  },
   plugins: [],
-  // add your custom rules here
-  rules: {},
 }

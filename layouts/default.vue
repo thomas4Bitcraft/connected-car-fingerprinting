@@ -50,7 +50,7 @@ export default {
         {
           icon: 'mdi-content-save-all',
           title: 'Save Car',
-          to: '/set-car',
+          to: '/save-car',
         },
         {
           icon: 'mdi-car-connected',
