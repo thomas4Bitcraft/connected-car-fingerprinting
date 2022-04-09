@@ -21,8 +21,10 @@
 </template>
 
 <script>
+import {carsList} from "~/data/cars";
+
 export default {
-  async asyncData({ $api }) {
+  /* async asyncData({ $api }) {
     try {
       const cars = await $api.cars.list()
       return {
@@ -33,6 +35,11 @@ export default {
         cars: [],
       }
     }
-  },
+  }, */
+  data () {
+    return {
+      cars: carsList
+    }
+  }
 }
 </script>

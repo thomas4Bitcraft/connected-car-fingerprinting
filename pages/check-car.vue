@@ -84,9 +84,10 @@
 
 <script>
 import fingerprint from '~/utils/fingerprint'
+import {carsList} from "~/data/cars";
 
 export default {
-  async asyncData({ $api }) {
+  /* async asyncData({ $api }) {
     try {
       const cars = await $api.cars.list()
       return {
@@ -97,7 +98,7 @@ export default {
         cars: [],
       }
     }
-  },
+  }, */
   data() {
     return {
       loading: false,
@@ -114,6 +115,7 @@ export default {
       testFailed: false,
       testSuccess: false,
       fingerprintData: null,
+      cars: carsList
     }
   },
   methods: {
