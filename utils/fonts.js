@@ -1,4 +1,4 @@
-import { fontsList } from "~/data/fonts";
+import { fontsList } from '~/data/fonts'
 
 export const getFonts = () => {
   const fonts = fontsList

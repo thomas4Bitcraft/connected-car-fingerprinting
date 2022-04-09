@@ -25,7 +25,6 @@ export const getMultimedia = () => {
             micros: deviceToCount.audioinput,
             webcams: deviceToCount.videoinput,
           })
-          // 1571937013393b99891d64a2519c5ad6
         } else {
           resolve({
             speakers: 0,

@@ -57,6 +57,11 @@ export default {
           title: 'Check Car',
           to: '/check-car',
         },
+        {
+          icon: 'mdi-fingerprint',
+          title: 'Fingerprint',
+          to: '/fingerprint',
+        },
       ],
       right: true,
       rightDrawer: false,

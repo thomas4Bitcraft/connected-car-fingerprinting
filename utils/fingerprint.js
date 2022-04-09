@@ -16,9 +16,9 @@ import { getNavigatorData } from '~/utils/navigator'
 import { getVideoData } from '~/utils/video'
 import { getPlugins } from '~/utils/plugins'
 import { getWebGLData } from '~/utils/webgl'
-import {generateMurmurHash} from "~/utils/hash";
+import { generateMurmurHash } from '~/utils/hash'
 
-export default async ({ debug = false } = {}) => {
+export default async ({ httpData, debug = false } = {}) => {
   // Audio Data
   const audioFormats = getAudioFormats()
   const audioContext = getAudioContext()
@@ -56,6 +56,7 @@ export default async ({ debug = false } = {}) => {
   const videoFormats = getVideoData()
 
   const data = {
+    httpData,
     audioFormats,
     audioContext,
     analyserNode,

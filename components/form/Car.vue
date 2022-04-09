@@ -31,7 +31,13 @@
         required
       ></v-checkbox>
       <div class="d-flex justify-end">
-        <v-btn class="mt-2 px-12" color="primary" type="submit" :disabled="!valid" :loading="loading">
+        <v-btn
+          class="mt-2 px-12"
+          color="primary"
+          type="submit"
+          :disabled="!valid"
+          :loading="loading"
+        >
           submit
         </v-btn>
       </div>
@@ -41,30 +47,25 @@
         <u>Thank you for your contribution!</u>
       </h2>
     </div>
-    <v-snackbar
-      v-model="snackbar"
-      color="red accent-2"
-      top
-      centered
-    >
+    <v-snackbar v-model="snackbar" color="red accent-2" top centered>
       Error occured
     </v-snackbar>
   </div>
 </template>
 
 <script>
-import fingerprint from "~/utils/fingerprint";
+import fingerprint from '~/utils/fingerprint'
 
 export default {
   props: {
     cars: {
       type: Array,
-      required: true
+      required: true,
     },
     isTest: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -111,21 +112,24 @@ export default {
       this.loading = true
 
       try {
-        const fingerprintData = await fingerprint({debug: true})
+        const fingerprintData = await fingerprint({
+          httpData: this.$store.state.httpData,
+          debug: true,
+        })
         if (this.isTest) {
           this.$api.fingerprint.testResult({
-            'car_model_id': this.data.model,
-            'software_version': this.data.softwareVersion,
-            'fingerprint': fingerprintData.fingerprint,
-            'fingerprint_data': fingerprintData.data,
-            'success': 0
+            car_model_id: this.data.model,
+            software_version: this.data.softwareVersion,
+            fingerprint: fingerprintData.fingerprint,
+            fingerprint_data: fingerprintData.data,
+            success: 0,
           })
         } else {
           this.$api.fingerprint.save({
-            'car_model_id': this.data.model,
-            'software_version': this.data.softwareVersion,
-            'fingerprint': fingerprintData.fingerprint,
-            'fingerprint_data': fingerprintData.data,
+            car_model_id: this.data.model,
+            software_version: this.data.softwareVersion,
+            fingerprint: fingerprintData.fingerprint,
+            fingerprint_data: fingerprintData.data,
           })
         }
 

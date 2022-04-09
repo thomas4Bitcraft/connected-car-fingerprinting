@@ -1,4 +1,4 @@
-import {videoFormatsList} from "~/data/video-formats";
+import { videoFormatsList } from '~/data/video-formats'
 
 export const getVideoData = () => {
   try {

@@ -6,11 +6,11 @@
         <v-card-title class="headline"> Save public car data</v-card-title>
         <v-card-text>
           <p>
-            Here you can add the public data that your car exposes to any website you
-            visit to our database. This helps to analyse if it is possible to
-            build unique fingerprints to detect cars like yours. If you want to
-            contribute enter the vendor, model and if possible the software
-            version of you car. <b>Thank you for your contribution!</b>
+            Here you can add the public data that your car exposes to any
+            website you visit to our database. This helps to analyse if it is
+            possible to build unique fingerprints to detect cars like yours. If
+            you want to contribute enter the vendor, model and if possible the
+            software version of you car. <b>Thank you for your contribution!</b>
           </p>
           <form-car :cars="cars" />
           <card-footer />

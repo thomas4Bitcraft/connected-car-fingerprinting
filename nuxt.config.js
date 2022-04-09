@@ -42,7 +42,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://car-fingerprint.local/api',
+    baseURL: 'https://car-fingerprint.com/api',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

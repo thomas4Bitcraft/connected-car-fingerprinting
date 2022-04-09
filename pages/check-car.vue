@@ -6,10 +6,16 @@
         <v-card-title class="headline">Check my car</v-card-title>
         <v-card-text>
           <p>
-            Here you can test if we already successfully created a fingerprint for you car model.
+            Here you can test if we already successfully created a fingerprint
+            for you car model.
           </p>
           <div class="d-flex justify-end">
-            <v-btn class="mt-2" color="primary" :loading="loading" @click="check">
+            <v-btn
+              class="mt-2"
+              color="primary"
+              :loading="loading"
+              @click="check"
+            >
               Check my car
             </v-btn>
           </div>
@@ -20,7 +26,9 @@
         <v-card-title class="headline">Car not detected</v-card-title>
         <v-card-text>
           <p>
-            Your car could not be detected. Maybe it is not in our database. If you want to add your car feel free to fill the form below and help us in our research.
+            Your car could not be detected. Maybe it is not in our database. If
+            you want to add your car feel free to fill the form below and help
+            us in our research.
           </p>
           <form-car :cars="cars" :is-test="testFailed" />
           <card-footer />
@@ -30,29 +38,18 @@
         <v-card-title class="headline">Car detected</v-card-title>
         <v-card-text>
           <p>
-            We have a fingerprint that matches your car. Please send us feedback if it is the right one.
+            We have a fingerprint that matches your car. Please send us feedback
+            if it is the right one.
           </p>
           <div class="text-center">
-            <v-chip
-              class="ma-2"
-              color="success"
-              outlined
-            >
-              <v-icon left>
-                mdi-car-connected
-              </v-icon>
-              {{ detectedAttributes.car.vendor_title }} {{ detectedAttributes.car.display_title }}
+            <v-chip class="ma-2" color="success" outlined>
+              <v-icon left> mdi-car-connected </v-icon>
+              {{ detectedAttributes.car.vendor_title }}
+              {{ detectedAttributes.car.display_title }}
             </v-chip>
 
-            <v-chip
-              class="ma-2"
-              color="primary"
-              outlined
-              pill
-            >
-              <v-icon left>
-                mdi-access-point
-              </v-icon>
+            <v-chip class="ma-2" color="primary" outlined pill>
+              <v-icon left> mdi-access-point </v-icon>
               Version: {{ detectedAttributes.softwareVersion }}
             </v-chip>
           </div>
@@ -63,7 +60,12 @@
               <v-btn class="px-12" color="primary" @click="testFailedPressed">
                 No
               </v-btn>
-              <v-btn class="px-12" :loading="loading" color="primary" @click="testSuccessPressed">
+              <v-btn
+                class="px-12"
+                :loading="loading"
+                color="primary"
+                @click="testSuccessPressed"
+              >
                 Yes
               </v-btn>
             </div>
@@ -100,18 +102,18 @@ export default {
     return {
       loading: false,
       states: {
-        initial: "initial",
-        failed: "failed",
-        success: "success",
+        initial: 'initial',
+        failed: 'failed',
+        success: 'success',
       },
-      state: "initial",
+      state: 'initial',
       detectedAttributes: {
         car: {},
-        softwareVersion: ''
+        softwareVersion: '',
       },
       testFailed: false,
       testSuccess: false,
-      fingerprintData: null
+      fingerprintData: null,
     }
   },
   methods: {
@@ -125,14 +127,17 @@ export default {
     async check() {
       this.loading = true
       try {
-        this.fingerprintData = await fingerprint({debug: true})
+        this.fingerprintData = await fingerprint({
+          httpData: this.$store.state.httpData,
+          debug: true,
+        })
         const data = await this.$api.fingerprint.check({
-          'fingerprint': this.fingerprintData.fingerprint,
+          fingerprint: this.fingerprintData.fingerprint,
         })
 
         this.detectedAttributes = {
           car: data.car,
-          softwareVersion: data.software_version
+          softwareVersion: data.software_version,
         }
         this.state = this.states.success
       } catch (e) {
@@ -146,8 +151,8 @@ export default {
       this.loading = true
       try {
         await this.$api.fingerprint.testResult({
-          'fingerprint': this.fingerprintData.fingerprint,
-          'success': 1
+          fingerprint: this.fingerprintData.fingerprint,
+          success: 1,
         })
 
         this.testSuccess = true
@@ -156,7 +161,7 @@ export default {
       }
 
       this.loading = false
-    }
+    },
   },
 }
 </script>

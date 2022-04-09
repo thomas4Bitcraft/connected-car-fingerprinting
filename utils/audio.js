@@ -1,4 +1,4 @@
-import {audioFormatsList} from "~/data/audio-formats";
+import { audioFormatsList } from '~/data/audio-formats'
 
 export const getAudioFormats = () => {
   const audioFormats = {}

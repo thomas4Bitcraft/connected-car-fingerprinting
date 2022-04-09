@@ -17,6 +17,12 @@ export const getNavigatorData = () => {
     buildID,
   } = window.navigator
 
+  let count = 0
+  // eslint-disable-next-line no-unused-vars
+  for (const i in navigator) {
+    count++
+  }
+
   return {
     appName,
     appCodeName,
@@ -33,6 +39,6 @@ export const getNavigatorData = () => {
     vendorSub,
     webdriver,
     buildID,
-    count: Object.keys(window.navigator),
+    count,
   }
 }
