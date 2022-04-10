@@ -3,10 +3,8 @@ import {
   getAudioContext,
   getAnalyserNode,
 } from '~/utils/audio'
-import { getConnection } from '~/utils/connection'
 import { getCanvasImage } from '~/utils/canvas'
 import { getFonts } from '~/utils/fonts'
-import { getMultimedia } from '~/utils/multimedia'
 import { getScreen } from '~/utils/screen'
 import {
   getSessionStorageEnabled,
@@ -18,26 +16,20 @@ import { getPlugins } from '~/utils/plugins'
 import { getWebGLData } from '~/utils/webgl'
 import { generateMurmurHash } from '~/utils/hash'
 
-export default async ({ httpData, debug = false } = {}) => {
+export default ({ httpData, debug = false } = {}) => {
   // Audio Data
   const audioFormats = getAudioFormats()
   const audioContext = getAudioContext()
   const analyserNode = getAnalyserNode()
 
-  // Connection
-  const connection = getConnection()
-
   // Canvas
   const canvasImage = getCanvasImage()
 
-  // Canvas
+  // WebGL
   const webGL = getWebGLData()
 
   // Fonts
   const fontsList = getFonts()
-
-  // Multimedia
-  const multimedia = await getMultimedia()
 
   // Screen
   const screen = getScreen()
@@ -60,8 +52,6 @@ export default async ({ httpData, debug = false } = {}) => {
     audioFormats,
     audioContext,
     analyserNode,
-    connection,
-    multimedia,
     screen,
     sessionStorageEnabled,
     localeStorageEnabled,
@@ -82,7 +72,7 @@ export default async ({ httpData, debug = false } = {}) => {
   }
 
   return {
-    fingerprint,
     data,
+    fingerprint,
   }
 }

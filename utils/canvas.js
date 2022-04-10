@@ -1,6 +1,5 @@
 export const getCanvasImage = () => {
   let canvasData
-
   try {
     const canvas = document.createElement('canvas')
     canvas.height = 60

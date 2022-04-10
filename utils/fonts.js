@@ -1,6 +1,7 @@
 import { fontsList } from '~/data/fonts'
 
 export const getFonts = () => {
+  // Set basic test data like the fonts to check,
   const fonts = fontsList
   const baseFonts = ['serif', 'sans-serif', 'monospace']
   const testSize = '72px'
@@ -11,6 +12,7 @@ export const getFonts = () => {
   s.innerText = testChar
   const defaultFonts = {}
 
+  // get the height and width of the checked letter for all basic fonts
   for (const indexBaseFonts in baseFonts) {
     const baseFont = baseFonts[indexBaseFonts]
     s.style.fontFamily = baseFont
@@ -31,6 +33,9 @@ export const getFonts = () => {
     let detected = false
     const fontStyle = '"' + font + '"'
 
+    // loop trough fontsList to check if the letter has a different size
+    // if yes the font is installed on the system
+    // if no the system use the fallback font
     for (const _indexBaseFonts in baseFonts) {
       const _baseFont = baseFonts[_indexBaseFonts]
       s.style.fontFamily = fontStyle + ',' + _baseFont

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {carsList} from "~/data/cars";
+import { carsList } from '~/data/cars'
 
 export default {
   /* async asyncData({ $api }) {
@@ -36,10 +36,10 @@ export default {
       }
     }
   }, */
-  data () {
+  data() {
     return {
-      cars: carsList
+      cars: carsList,
     }
-  }
+  },
 }
 </script>
