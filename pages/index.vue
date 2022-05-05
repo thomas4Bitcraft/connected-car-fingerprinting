@@ -36,9 +36,8 @@
               <nuxt-link to="/check-car">Check Car</nuxt-link>
             </p>
             <p>
-              As soon as the research is finished the paper will be available
-              here:
-              <a href="#" target="_blank" rel="noopener noreferrer">Link</a>
+              The finished paper is available here:
+              <a href="https://drive.google.com/file/d/1OgOSsG3YOXV0-uomKdblOLizne1BVigH/view?usp=sharing" target="_blank" rel="noopener noreferrer">Link to paper</a>
             </p>
             <p>
               If you have any questions, feel free to leave me a message.<br />
